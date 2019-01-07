@@ -1,7 +1,7 @@
 package com.shako.app.resource;
 
 /**
- * Константы.
+ * Константы проекта.
  */
 public class R {
 
