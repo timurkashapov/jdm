@@ -12,13 +12,15 @@ public class Runner {
     {}
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(DownloadManager::new);
+        //SwingUtilities.invokeLater(DownloadManager::new);
 
 
         //String title = "NewDownload";
 
         // ---------------------------------------------------
         // добавляем новый процесс загрузки:
+
+        new Download(State.INIT).start();
 
         // java legacy
 //        new Thread(new Runnable() {
@@ -29,10 +31,10 @@ public class Runner {
 //        }, title).start();
 
         // lava
-        // new Thread(() -> new Download(State.INIT), title).start();
+//         new Thread(() -> new Download(State.INIT), title).start();
 
         // lava+mref
-        // new Thread(Download::new, title).start();
+//         new Thread(Download::new, title).start();
         // ---------------------------------------------------
     }
 }
