@@ -14,7 +14,13 @@
         <maven.java.compiler.source>1.8</maven.java.compiler.source>
         <maven.java.compiler.target>1.8</maven.java.compiler.target>
 
+        <maven.compiler.plugin.version>3.7.0</maven.compiler.plugin.version>
+        <maven.jar.plugin.version>2.4</maven.jar.plugin.version>
+
+        <maven-checkstyle-plugin.version>2.6</maven-checkstyle-plugin.version>
+
         <junit.version>4.12</junit.version>
+
     </properties>
 
     <dependencies>
@@ -28,7 +34,10 @@
     <build>
         <pluginManagement>
             <plugins>
+
+                <!--maven-compiler-plugin-->
                 <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${maven.compiler.plugin.version}</version>
                     <configuration>
@@ -36,6 +45,38 @@
                         <target>${maven.java.compiler.target}</target>
                         <encoding>${source.encoding.utf8}</encoding>
                     </configuration>
+                </plugin>
+
+                <!--maven-jar-plugin-->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${maven.jar.plugin.version}</version>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <mainClass>Runner</mainClass>
+                            </manifest>
+                        </archive>
+                    </configuration>
+                </plugin>
+
+                <!--maven-checkstyle-plugin-->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <version>${maven-checkstyle-plugin.version}</version>
+                    <configuration>
+                        <!--<configLocation>sun_checks.xml.xml</configLocation>-->
+                        <configLocation>google_checks.xml</configLocation>
+                        <consoleOutput>true</consoleOutput>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals><goal>check</goal></goals>
+                        </execution>
+                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
