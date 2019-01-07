@@ -6,7 +6,7 @@
 
     <groupId>com.shako</groupId>
     <artifactId>jdm</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>jdm-1.0</version>
 
     <properties>
 
